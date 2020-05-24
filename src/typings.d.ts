@@ -14,44 +14,4 @@ declare module '!file-loader*' {
 }
 
 declare module 'tone';
-
-declare interface IDisposable {
-  dispose(): void;
-}
-
-interface AudioParamMap {
-  get(param: string): AudioParam;
-}
-
-declare class AudioWorkletProcessor {
-  public port: MessagePort;
-  public process(inputs: Float32Array[][], outputs: Float32Array[][], parameters: { [name: string]: Float32Array }): boolean;
-}
-
-declare function registerProcessor(name: string, impl: any): void;
-
-declare interface ProcessorParams {
-  name: string;
-  defaultValue: number;
-  minValue?: number;
-  maxValue?: number;
-}
-
-declare interface ISynthControl {
-  value: number;
-  min: number;
-  max: number;
-  display: ((v: number) => string) | undefined;
-  midiMapMode: boolean;
-  midiLearning: boolean;
-  midiMappedTo: string;
-  setValueByRatio(value: number);
-}
-
-declare interface ILfWaveform {
-  tp: number;
-  te: number;
-  ta: number;
-  tc: number;
-  values: number[];
-}
+declare module 'audiomotion-analyzer';

@@ -8,7 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "audiomotion-analyzer": "^2.2.0",
     "core-js": "^3.6.4",
+    "tone": "^13.8.25",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^8.4.1",
