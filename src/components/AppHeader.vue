@@ -1,6 +1,6 @@
 <template>
     <div id="appHeader">
-        <audioMotion :mainAudio="mainAudio"/>
+        <audioMotionAnalyzer :audioCtx="mainAudio.audioContext"/>
         <!--
         <div id="nav">
             <router-link to="/">Home</router-link> |
@@ -14,13 +14,14 @@
 <script lang="ts">
     import {Component, Prop, Vue} from 'vue-property-decorator';
     import MainAudio from '@/core/main-audio';
-    import AudioMotion from '@/components/AudioMotion.vue';
 
-    @Component({
-        components: { AudioMotion }
-    })
+    @Component
     export default class AppHeader extends Vue {
         @Prop(MainAudio) private mainAudio!: MainAudio;
+
+        public mounted() {
+            this.mainAudio.addAnalyser(this.$audioMotion.getAnalyzer())
+        }
     }
 </script>
 

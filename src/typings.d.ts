@@ -14,4 +14,4 @@ declare module '!file-loader*' {
 }
 
 declare module 'tone';
-declare module 'audiomotion-analyzer';
+declare module 'vue-audiomotion-analyzer';
