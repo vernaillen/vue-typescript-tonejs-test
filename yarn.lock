@@ -8068,10 +8068,10 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vue-audiomotion-analyzer@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/vue-audiomotion-analyzer/-/vue-audiomotion-analyzer-0.0.1.tgz#0e12716b54b38360314503b7eb5ec63d76fba7ed"
-  integrity sha512-TTtI/Zo+gcSP+oGe4NX7lSKaonK6/O+1gEfUSo3NLwwd5ZEEO7tYdlp/XUk2BO3P2ExrNZdGZ8lfR8abSoplhw==
+vue-audiomotion-analyzer@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/vue-audiomotion-analyzer/-/vue-audiomotion-analyzer-0.0.2.tgz#95d68cc386fb45783eebbdfa6c9bfb37ab18e0b8"
+  integrity sha512-WDQJhBN4jkkbH6z84bJlTCXqcR/jkRJnZDEOdBizwqIyGAJzZeh9tyxQBg5lOwu9PLDBzPdnEMYEnbLhKXUrwA==
   dependencies:
     audiomotion-analyzer "^2.2.0"
 
