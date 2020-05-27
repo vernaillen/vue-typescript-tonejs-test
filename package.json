@@ -11,7 +11,8 @@
     "core-js": "^3.6.4",
     "tone": "^13.8.25",
     "vue": "^2.6.11",
-    "vue-audiomotion-analyzer": "^0.0.2",
+    "@magenta/music": "^1.15.0",
+    "vue-audiomotion-analyzer": "^0.0.4",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^8.4.1",
     "vue-router": "^3.1.6"

@@ -10,7 +10,7 @@ export default class MainAudio {
         Tone.setContext(this.audioContext)
     }
 
-    public toMaster(this: MainAudio, audioNode: any): void {
+    public toMaster(this: MainAudio, audioNode): void {
         this.analysers.forEach(function (analyser) { audioNode.fan(analyser)})
         audioNode.toMaster()
     }

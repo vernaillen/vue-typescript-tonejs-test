@@ -1,30 +1,37 @@
 <template>
     <div id="appHeader">
-        <audioMotionAnalyzer :audioCtx="mainAudio.audioContext"/>
-        <!--
+        <audioMotionAnalyzer :audioCtx="$mainAudio.audioContext"/>
         <div id="nav">
             <router-link to="/">Home</router-link> |
-            <router-link to="/synth">Synth</router-link> |
-            <router-link to="/player">AudioPlayer</router-link>
+            <router-link to="/tonejs">Tone.js</router-link> |
+            <router-link to="/magentajs">Magenta.js</router-link>
         </div>
-        -->
     </div>
 </template>
 
 <script lang="ts">
-    import {Component, Prop, Vue} from 'vue-property-decorator';
-    import MainAudio from '@/core/main-audio';
+    import {Component, Vue} from 'vue-property-decorator';
 
     @Component
     export default class AppHeader extends Vue {
-        @Prop(MainAudio) private mainAudio!: MainAudio;
 
         public mounted() {
-            this.mainAudio.addAnalyser(this.$audioMotion.getAnalyzer())
+            this.$mainAudio.addAnalyser(this.$audioMotion.getAnalyzer())
         }
     }
 </script>
 
 <style scoped>
+    #nav {
+        padding: 30px;
+    }
 
+    #nav a {
+        font-weight: bold;
+        color: #2c3e50;
+    }
+
+    #nav a.router-link-exact-active {
+        color: #42b983;
+    }
 </style>

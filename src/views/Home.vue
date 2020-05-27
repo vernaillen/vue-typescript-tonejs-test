@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Vue.js + Tone.js test app"</h1>
+    <h1>Vue.js + Tone.js + Magenta.js playground</h1>
   </div>
 </template>
 
