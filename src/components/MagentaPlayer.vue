@@ -1,6 +1,6 @@
 <template>
     <div class="magentaPlayer">
-        <p><a href="https://magenta.tensorflow.org/music-vae" alert="_blank">Magenta MusicVAE</a></p>
+        <p><a href="https://magenta.tensorflow.org/music-vae" target="_blank">Magenta MusicVAE</a></p>
         <button @click="click">{{buttonText}}</button>
     </div>
 </template>
@@ -26,8 +26,8 @@
                 }
             });
 
-            this.$mainAudio.toMaster(this.magentaPlayer.bassSynth)
-            this.$mainAudio.toMaster(this.magentaPlayer.polySynth)
+            //this.$mainAudio.toMaster(this.magentaPlayer.bassSynth)
+            //this.$mainAudio.toMaster(this.magentaPlayer.polySynth)
         }
         public click() {
             console.log(this.magentaPlayer.isPlaying())

@@ -4,8 +4,7 @@
         <audioMotionConfig />
         <div id="nav">
             <router-link to="/">Home</router-link> |
-            <router-link to="/tonejs">Tone.js</router-link> |
-            <router-link to="/magentajs">Magenta.js</router-link>
+            <router-link to="/tonejs">Tone.js</router-link>
         </div>
     </div>
 </template>
