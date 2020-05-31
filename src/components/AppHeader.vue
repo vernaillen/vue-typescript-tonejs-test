@@ -1,7 +1,8 @@
 <template>
     <div id="appHeader">
         <audioMotionAnalyzer :options="analyzerOptions"/>
-        <audioMotionConfig />
+        <audioMotionConfig v-if="showConfig" />
+        <button @click="toggleConfig">{{buttonText}}</button>
         <!--
         <div id="nav">
             <router-link to="/">Home</router-link> |
@@ -17,6 +18,8 @@
 
     @Component
     export default class AppHeader extends Vue {
+        showConfig = false
+        buttonText = 'show analyzer config'
         analyzerOptions = {
             audioCtx: this.$mainAudio.audioContext,
             reflexRatio: 0.2,
@@ -28,6 +31,14 @@
         }
         public mounted() {
             this.$mainAudio.addAnalyser(this.$audioMotion.getAnalyzer())
+        }
+        toggleConfig() {
+            this.showConfig = !this.showConfig
+            if (this.showConfig) {
+                this.buttonText = 'hide config'
+            } else {
+                this.buttonText = 'show analyzer config'
+            }
         }
     }
 </script>

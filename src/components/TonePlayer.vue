@@ -24,21 +24,21 @@
 
 <script lang="ts">
     import { Component, Vue } from 'vue-property-decorator';
-    import { Player } from "tone";
+    import { Player, Buffer } from "tone";
     import axios from 'axios';
 
     @Component
     export default class TonePlayer extends Vue {
         audioPlayer
         buttonText = 'Play'
-        trackUrl = 'https://soundcloud.com/woutervernaillen/tech-house-swing-tryout'
+        trackUrl = 'https://soundcloud.com/thealien666/interlude'
         clientId = '1745017edcfeb72a175c95614a1cc212'
         loading = true
         soundCloudData
         loadingError = ''
 
         public created() {
-            this.buttonText = 'Loading...'
+            this.buttonText = 'Loading Buffer...'
             this.getStreamUrl()
         }
         public click() {
@@ -64,22 +64,25 @@
         public getStreamUrl() {
             this.soundCloudData = null
             this.loading = true
-            this.buttonText = 'Loading...'
+            this.buttonText = 'Loading Buffer...'
             axios
                 .get('https://api.soundcloud.com/resolve.json?url=' + this.trackUrl + '&client_id=' + this.clientId)
                 .then(result => (
                     this.soundCloudData = result.data,
-                    this.audioPlayer = new Player(result.data.stream_url + "?client_id=" + this.clientId),
-                    this.$mainAudio.toMaster(this.audioPlayer)
+                    this.loadPlayer(result.data.stream_url)
                 ))
                 .catch(error => {
                     this.loadingError = error
                     console.log(error)
                 })
-                .finally(() => (
-                    this.loading = false,
-                    this.buttonText = 'Play'
-                ))
+        }
+        public loadPlayer(streamUrl) {
+            this.audioPlayer = new Player(streamUrl + "?client_id=" + this.clientId, this.loaded)
+            this.$mainAudio.toMaster(this.audioPlayer)
+        }
+        public loaded() {
+            this.loading = false
+            this.buttonText = 'Play'
         }
         public userUrl(id) {
             return 'https://soundcloud.com/' + id
