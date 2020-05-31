@@ -19,12 +19,12 @@
     export default class AppHeader extends Vue {
         analyzerOptions = {
             audioCtx: this.$mainAudio.audioContext,
-            reflexRatio: 0.3,
-            reflexAlpha: 0.3,
+            reflexRatio: 0.2,
+            reflexAlpha: 0.5,
             showLeds: true,
             mode: 3,
             gradient: 'rainbow',
-            height: 400
+            height: 300
         }
         public mounted() {
             this.$mainAudio.addAnalyser(this.$audioMotion.getAnalyzer())
