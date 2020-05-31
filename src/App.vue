@@ -25,4 +25,16 @@
   text-align: center;
   color: #2c3e50;
 }
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: 1px solid grey;
+  background: transparent;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+button:hover {
+  border-color: black;
+}
 </style>

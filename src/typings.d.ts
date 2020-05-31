@@ -15,3 +15,4 @@ declare module '!file-loader*' {
 
 declare module 'tone';
 declare module 'vue-audiomotion-analyzer';
+declare module '@/core/pianoroll';

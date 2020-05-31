@@ -21,7 +21,7 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "types": [
-      "webpack-env", "webmidi"
+      "webpack-env"
     ],
     "paths": {
       "@/*": [
