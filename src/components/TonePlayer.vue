@@ -10,11 +10,13 @@
         <br/>
         <p v-if="soundCloudData">
             <a :href="soundCloudData.permalink_url" target="_blank">{{soundCloudData.title}}</a><br/><br/>
-            <a v-if="soundCloudData.artwork_url" :href="soundCloudData.permalink_url" target="_blank">
+            <span v-if="soundCloudData.artwork_url">
+                <a :href="soundCloudData.permalink_url" target="_blank">
                 <img :src="soundCloudData.artwork_url"/>
-            </a><br/>
+                </a><br/>
+            </span>
             <span v-if="soundCloudData.label_name">{{soundCloudData.label_name}}<br/></span>
-            posted by <a :href="userUrl(soundCloudData.user.username)" target="_blank">{{soundCloudData.user.username}}</a><br/><br/>
+            posted by <a :href="userUrl(soundCloudData.user.permalink)" target="_blank">{{soundCloudData.user.username}}</a><br/><br/>
             <span v-if="soundCloudData.description">{{soundCloudData.description}}</span>
             <br/><br/>
         </p>
@@ -36,7 +38,7 @@
     export default class TonePlayer extends Vue {
         audioPlayer
         buttonText = 'Play'
-        trackUrl = 'https://soundcloud.com/thealien666/interlude'
+        trackUrl = 'https://soundcloud.com/woutervernaillen/blue-sound-test-on-monday'
         clientId = '1745017edcfeb72a175c95614a1cc212'
         loading = true
         soundCloudData

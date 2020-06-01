@@ -11,7 +11,7 @@ Vue.use(VueRouter)
     name: 'TonePlayer',
     component: TonePlayer
   },
-    /*{
+    {
       path: '/tonejs',
       name: 'TonePlayer',
       // route level code-splitting
@@ -19,7 +19,6 @@ Vue.use(VueRouter)
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/Tone.vue')
     },
-*/
     {
       path: '/magentajs',
       name: 'Magenta',
