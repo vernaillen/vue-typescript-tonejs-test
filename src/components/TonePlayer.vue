@@ -94,6 +94,7 @@
     #trackUrl {
         padding: 7px;
         width: 500px;
+        max-width: 90%;
         background-color: #f5f5f5;
     }
 </style>
