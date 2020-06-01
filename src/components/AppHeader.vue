@@ -28,7 +28,7 @@
         analyzerOptions = {
             audioCtx: this.$mainAudio.audioContext,
             reflexRatio: 0.3,
-            reflexAlpha: 0.3,
+            reflexAlpha: 0.4,
             showLeds: true,
             mode: 3,
             gradient: 'rainbow',

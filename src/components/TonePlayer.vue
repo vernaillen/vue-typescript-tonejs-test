@@ -4,8 +4,10 @@
         Enter a SoundCloud URL:<br/>
         <input id="trackUrl" v-model="trackUrl"/> <button @click="loadUrl">Load</button>
         <br/><br/>
-        <button @click="click" :disabled="loading">{{buttonText}}</button>
-        <br/><br/>
+        <button @click="click" :disabled="loading">{{buttonText}}</button><br/><br/>
+        volume (dB):<br/>
+        <knob :input="volume" :min="minVolume" :max="maxVolume" @changed="updateVolume"></knob>
+        <br/>
         <p v-if="soundCloudData">
             <a :href="soundCloudData.permalink_url" target="_blank">{{soundCloudData.title}}</a><br/><br/>
             <a v-if="soundCloudData.artwork_url" :href="soundCloudData.permalink_url" target="_blank">
@@ -25,9 +27,12 @@
 <script lang="ts">
     import { Component, Vue } from 'vue-property-decorator';
     import { Player } from "tone";
+    import Knob from './Knob.vue'
     import axios from 'axios';
 
-    @Component
+    @Component({
+        components: { Knob }
+    })
     export default class TonePlayer extends Vue {
         audioPlayer
         buttonText = 'Play'
@@ -36,10 +41,12 @@
         loading = true
         soundCloudData
         loadingError = ''
+        volume = -10
+        minVolume = -20
+        maxVolume = 0
 
         public created() {
-            this.buttonText = 'Loading Buffer...'
-            this.getStreamUrl()
+            this.loadUrl()
         }
         public click() {
             if (this.audioPlayer != null && this.audioPlayer.state == 'started') {
@@ -53,15 +60,13 @@
             this.buttonText = 'Stop'
         }
         public stop() {
-            this.audioPlayer.stop()
+            if (this.audioPlayer) {
+                this.audioPlayer.stop()
+            }
             this.buttonText = 'Play'
         }
         public loadUrl() {
-            this.loading = true
             this.stop()
-            this.getStreamUrl()
-        }
-        public getStreamUrl() {
             this.soundCloudData = null
             this.loading = true
             this.buttonText = 'Loading Buffer...'
@@ -77,7 +82,8 @@
                 })
         }
         public loadPlayer(streamUrl) {
-            this.audioPlayer = new Player(streamUrl + "?client_id=" + this.clientId, this.loaded)
+            this.audioPlayer = new Player( streamUrl + "?client_id=" + this.clientId, this.loaded)
+            this.updateVolume(this.volume)
             this.$mainAudio.toMaster(this.audioPlayer)
         }
         public loaded() {
@@ -86,6 +92,11 @@
         }
         public userUrl(id) {
             return 'https://soundcloud.com/' + id
+        }
+        public updateVolume(value) {
+            if (value) {
+                this.audioPlayer.volume.value = value
+            }
         }
     }
 </script>
