@@ -24,7 +24,7 @@
 
 <script lang="ts">
     import { Component, Vue } from 'vue-property-decorator';
-    import { Player, Buffer } from "tone";
+    import { Player } from "tone";
     import axios from 'axios';
 
     @Component

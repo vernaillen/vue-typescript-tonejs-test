@@ -1,6 +1,7 @@
 <template>
     <div id="appHeader">
-        <audioMotionAnalyzer :options="analyzerOptions"/>
+        <audioMotionAnalyzer :options="defaultOptions" @audioMotion="connectAnalyzer"/>
+        <audioMotionAnalyzer :options="analyzerOptions" @audioMotion="connectAnalyzer"/>
         <audioMotionConfig v-if="showConfig" />
         <button @click="toggleConfig">{{buttonText}}</button>
         <!--
@@ -20,17 +21,21 @@
     export default class AppHeader extends Vue {
         showConfig = false
         buttonText = 'show analyzer config'
+        defaultOptions = {
+            audioCtx: this.$mainAudio.audioContext,
+            height: 150
+        }
         analyzerOptions = {
             audioCtx: this.$mainAudio.audioContext,
-            reflexRatio: 0.2,
-            reflexAlpha: 0.5,
+            reflexRatio: 0.3,
+            reflexAlpha: 0.3,
             showLeds: true,
             mode: 3,
             gradient: 'rainbow',
             height: 300
         }
-        public mounted() {
-            this.$mainAudio.addAnalyser(this.$audioMotion.getAnalyzer())
+        public connectAnalyzer(audioMotion) {
+            this.$mainAudio.addAnalyser(audioMotion.getAnalyzer())
         }
         toggleConfig() {
             this.showConfig = !this.showConfig
