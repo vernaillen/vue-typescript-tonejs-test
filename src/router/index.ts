@@ -14,26 +14,20 @@ Vue.use(VueRouter)
     {
       path: '/tonejs',
       name: 'TonePlayer',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/Tone.vue')
+      component: () => import(/* webpackChunkName: "tonejs" */ '../views/Tone.vue')
     },
     {
       path: '/magentajs',
       name: 'Magenta',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '../views/Magenta.vue')
+      component: () => import(/* webpackChunkName: "magentajs" */ '../views/Magenta.vue')
     },
     {
       path: '/synth',
       name: 'Synth',
       // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
+      // this generates a separate chunk (synth.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '../views/Synth.vue')
+      component: () => import(/* webpackChunkName: "synth" */ '../views/Synth.vue')
     },
 ]
 
