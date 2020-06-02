@@ -4,13 +4,10 @@
         <audioMotionAnalyzer :options="analyzerOptions" @audioMotion="connectAnalyzer"/>
         <audioMotionConfig v-if="showConfig" />
         <button @click="toggleConfig">{{buttonText}}</button>
-        <!--
         <div id="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/tonejs">Tone.js</router-link> |
+            <router-link to="/">Tone.js</router-link> |
             <router-link to="/magentajs">Magenta.js</router-link>
         </div>
-        -->
     </div>
 </template>
 
