@@ -38,7 +38,7 @@
     export default class TonePlayer extends Vue {
         audioPlayer
         buttonText = 'Play'
-        trackUrl = 'https://soundcloud.com/woutervernaillen/blue-sound-test-on-monday'
+        trackUrl = 'https://soundcloud.com/woutervernaillen/deep-organ-house-sounddesign-test'
         clientId = '1745017edcfeb72a175c95614a1cc212'
         loading = true
         soundCloudData
