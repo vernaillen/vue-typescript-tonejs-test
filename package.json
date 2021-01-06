@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@magenta/music": "^1.15.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.4",
     "tone": "^13.8.25",
     "vue": "^2.6.11",
